@@ -2,7 +2,6 @@ using System;
 using System.Drawing;
 using System.Linq;
 using ConwaysGameOfLifeKatasConsole;
-using NUnit.Framework;
 using SharpTestsEx;
 
 /*
