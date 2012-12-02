@@ -37,7 +37,7 @@ namespace ConwaysGameOfLifeKatas.GenerationsUnitTests
         [Fact]
         public void new_generation_should_kill_alive_cell_with_four_alive_neighbours()
         {
-            var generation = new Generation(new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(0, 1),  new Point(1, 1));
+            var generation = new Generation(new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(0, 1), new Point(1, 1));
 
             generation.Tick().Contains(new Point(1, 1)).Should().BeFalse();
         }
