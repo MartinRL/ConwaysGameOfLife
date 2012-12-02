@@ -17,8 +17,7 @@ namespace ConwaysGameOfLifeKatasConsole
                             
                             Console.Clear();
                             
-                            g.ToStringRows(3)
-                            .Each(Console.WriteLine);
+                            g.ToStringRows(3).Each(Console.WriteLine);
                         });
         }
     }
