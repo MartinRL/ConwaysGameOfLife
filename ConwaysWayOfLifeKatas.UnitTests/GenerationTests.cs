@@ -76,7 +76,7 @@ namespace ConwaysGameOfLifeKatas.GenerationsUnitTests
             generation.Tick().Contains(new Point(1, 1)).Should().BeTrue();
         }
 
-        [Theory]
+        [Theory] /* http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life */
         [InlineData(0, 0, 0, false)]
         [InlineData(1, 0, 0, true)]
         [InlineData(2, 0, 0, false)]
