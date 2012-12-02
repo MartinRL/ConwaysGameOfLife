@@ -1,9 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysWayOfLifeKatas.UnitTests", "ConwaysWayOfLifeKatas.UnitTests\ConwaysWayOfLifeKatas.UnitTests.csproj", "{43B9AAAB-699F-43CC-90EA-8BDB1FB200A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGameOfLifeKatas.Console", "ConwaysGameOfLifeKatas.Console\ConwaysGameOfLifeKatas.Console.csproj", "{98A49E42-50B7-42A3-8EC4-6E8891F90389}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BDDEBCA-9FA5-4718-99DD-737BD1DA1E0B}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
