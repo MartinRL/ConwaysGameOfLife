@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Drawing;
 using System.Threading;
 
-namespace ConwaysGameOfLifeKatasConsole
+namespace ConwaysGameOfLifeKatas.Console
 {
     internal class Program
     {
@@ -15,9 +11,9 @@ namespace ConwaysGameOfLifeKatasConsole
             .Each(g => {
                             Thread.Sleep(500);
                             
-                            Console.Clear();
+                            System.Console.Clear();
                             
-                            g.ToStringRows(3).Each(Console.WriteLine);
+                            g.ToStringRows(3).Each(System.Console.WriteLine);
                         });
         }
     }

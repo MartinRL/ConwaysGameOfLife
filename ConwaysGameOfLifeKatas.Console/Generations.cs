@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace ConwaysGameOfLifeKatasConsole
+namespace ConwaysGameOfLifeKatas.Console
 {
     // note: no test coverage. only used for console crash test dummy
     public class Generations : IEnumerable<Generation>

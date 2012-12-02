@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace ConwaysGameOfLifeKatasConsole
+namespace ConwaysGameOfLifeKatas.Console
 {
     public static class Extensions
     {

@@ -1,7 +1,5 @@
-using System;
 using System.Drawing;
-using System.Linq;
-using ConwaysGameOfLifeKatasConsole;
+using ConwaysGameOfLifeKatas.Console;
 using FluentAssertions;
 using Xunit;
 using Xunit.Extensions;
@@ -14,7 +12,7 @@ using Xunit.Extensions;
  * 4. Any dead cell with exactly three live neighbours becomes a live cell.
  * http://coderetreat.com/gol.html
  */
-namespace ConwaysGameOfLifeKatas.GenerationsUnitTests
+namespace ConwaysWayOfLifeKatas.UnitTests
 {
     public class GenerationTests
     {
