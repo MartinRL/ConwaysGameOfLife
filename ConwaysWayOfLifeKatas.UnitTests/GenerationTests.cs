@@ -23,7 +23,7 @@ namespace ConwaysGameOfLifeKatas.GenerationsUnitTests
         {
             var generation = new Generation(new Point(1, 1), new Point(0, 1));
 
-            generation.Tick().Contains( new Point( 1, 1 ) ).Should().BeFalse();
+            generation.Tick().Contains(new Point(1, 1)).Should().BeFalse();
         }
 
         [Fact]
