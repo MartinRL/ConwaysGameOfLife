@@ -13,17 +13,12 @@ namespace ConwaysGameOfLifeKatas.Console
             aliveCells = new HashSet<Point>(seed);
         }
 
-        public Generation Tick()
-        {
-            return new Generation(KeepAlives.Union(Revives).ToArray());
-        }
-
         private IEnumerable<Point> KeepAlives
         {
             get
             {
                 return aliveCells.Where(c => GetNumberOfAliveNeighboursOf(c) == 2
-                                          || GetNumberOfAliveNeighboursOf(c) == 3);
+                                             || GetNumberOfAliveNeighboursOf(c) == 3);
             }
         }
 
@@ -31,16 +26,22 @@ namespace ConwaysGameOfLifeKatas.Console
         {
             get
             {
-                return aliveCells.SelectMany(GetDeadNeighboursOf)
-                                 .Where(c => GetNumberOfAliveNeighboursOf(c) == 3);
+                return aliveCells
+                    .SelectMany(GetDeadNeighboursOf)
+                    .Where(c => GetNumberOfAliveNeighboursOf(c) == 3);
             }
+        }
+
+        public Generation Tick()
+        {
+            return new Generation(KeepAlives.Union(Revives).ToArray());
         }
 
         public Generation Tick(int index)
         {
             var generation = this;
 
-            index.Times( () => generation = generation.Tick() );
+            index.Times(() => generation = generation.Tick());
 
             return generation;
         }
@@ -56,9 +57,8 @@ namespace ConwaysGameOfLifeKatas.Console
             const int END = 1;
 
             return START.To(END)
-                   .SelectMany(x => START.To(END)
-                                    .Select(y => new Point(cell.X + x, cell.Y + y)))
-                   .Except(cell);
+                    .SelectMany(x => START.To(END).Select(y => new Point(cell.X + x, cell.Y + y)))
+                    .Except(cell);
         }
 
         private int GetNumberOfAliveNeighboursOf(Point cell)
@@ -68,7 +68,7 @@ namespace ConwaysGameOfLifeKatas.Console
 
         private bool IsDead(Point cell)
         {
-            return !Contains( cell );
+            return !Contains(cell);
         }
 
         public bool Contains(Point cell)

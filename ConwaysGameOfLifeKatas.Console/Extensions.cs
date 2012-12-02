@@ -25,7 +25,7 @@ namespace ConwaysGameOfLifeKatas.Console
             return string.Join(delimiter, @this.ToArray());
         }
 
-        public static void Times( this int @this, Action action )
+        public static void Times(this int @this, Action action)
         {
             for (var i = 0; i <= @this; i++)
             {
@@ -33,11 +33,12 @@ namespace ConwaysGameOfLifeKatas.Console
             }
         }
 
-        public static IEnumerable<string> ToStringRows( this Generation @this, int gridSize )
+        public static IEnumerable<string> ToStringRows(this Generation @this, int gridSize)
         {
-            return Enumerable.Range( 0, gridSize )
-                   .Select( y => Enumerable.Range( 0, gridSize )
-                                .Select( x => @this.Contains( new Point( x, y ) ) ? "X" : "O" ).JoinAsString( " " ) );
+            return Enumerable.Range(0, gridSize)
+                             .Select(y => Enumerable.Range(0, gridSize)
+                                                    .Select(x => @this.Contains(new Point(x, y)) ? "X" : "O")
+                                                    .JoinAsString(" "));
         }
 
         public static IEnumerable<int> To(this int @this, int to)
