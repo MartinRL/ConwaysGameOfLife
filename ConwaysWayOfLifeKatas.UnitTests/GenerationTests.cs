@@ -1,5 +1,4 @@
 using System.Drawing;
-using System.Linq;
 using ConwaysGameOfLifeKatas.Console;
 using FluentAssertions;
 using Xunit;
