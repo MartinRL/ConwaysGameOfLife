@@ -37,15 +37,6 @@ namespace ConwaysGameOfLifeKatas.Console
             return new Generation(KeepAlives.Union(Revives).ToArray());
         }
 
-        public Generation Tick(int index)
-        {
-            var generation = this;
-
-            index.Times(() => generation = generation.Tick());
-
-            return generation;
-        }
-
         private IEnumerable<Point> GetDeadNeighboursOf(Point cell)
         {
             return GetNeighboursOf(cell).Where(IsDead);

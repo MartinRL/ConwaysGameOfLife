@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Linq;
 using ConwaysGameOfLifeKatas.Console;
 using FluentAssertions;
 using Xunit;
@@ -96,9 +97,9 @@ namespace ConwaysWayOfLifeKatas.UnitTests
         public void blinker_oscillator_should_oscillate_according_to_wikipedia(
             int x, int y, int generationIndex, bool isAlive)
         {
-            var generation = new Generation(new Point(0, 1), new Point(1, 1), new Point(2, 1));
+            var generations = new Generations(new Point(0, 1), new Point(1, 1), new Point(2, 1));
 
-            generation.Tick(generationIndex).Contains(new Point(x, y)).Should().Be(isAlive); 
+            generations[generationIndex].Contains(new Point(x, y)).Should().Be(isAlive);
         }
     }
 }

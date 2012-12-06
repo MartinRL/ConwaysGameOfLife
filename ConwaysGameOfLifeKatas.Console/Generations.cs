@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace ConwaysGameOfLifeKatas.Console
 {
-    // note: no test coverage. only used for console crash test dummy
     public class Generations : IEnumerable<Generation>
     {
         private readonly Generation seedGeneration;
