@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace ConwaysGameOfLifeKatas.Console
@@ -9,7 +8,7 @@ namespace ConwaysGameOfLifeKatas.Console
     {
         private readonly Generation seedGeneration;
 
-        public Generations(params Point[] seed)
+        public Generations(params Cell[] seed)
         {
             seedGeneration = new Generation(seed);
         }

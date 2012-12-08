@@ -19,59 +19,59 @@ namespace ConwaysWayOfLifeKatas.UnitTests
         [Fact]
         public void new_generation_should_kill_alive_cell_with_one_live_neighbour()
         {
-            var generation = new Generation(new Point(1, 1), new Point(0, 1));
+            var generation = new Generation(new Cell(1, 1), new Cell(0, 1));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeFalse();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeFalse();
         }
 
         [Fact]
         public void new_generation_should_kill_alive_cell_with_no_live_neighbours()
         {
-            var generation = new Generation(new Point(1, 1));
+            var generation = new Generation(new Cell(1, 1));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeFalse();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeFalse();
         }
 
         [Fact]
         public void new_generation_should_kill_alive_cell_with_four_alive_neighbours()
         {
-            var generation = new Generation(new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(0, 1), new Point(1, 1));
+            var generation = new Generation(new Cell(0, 0), new Cell(1, 0), new Cell(2, 0), new Cell(0, 1), new Cell(1, 1));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeFalse();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeFalse();
         }
 
         [Fact]
         public void new_generation_should_kill_alive_cell_with_eight_alive_neighbours()
         {
-            var generation = new Generation(new Point(0, 0), new Point(1, 0), new Point(2, 0), 
-                                            new Point(0, 1), new Point(1, 1), new Point(2, 1),
-                                            new Point(0, 2), new Point(1, 2), new Point(2, 2));
+            var generation = new Generation(new Cell(0, 0), new Cell(1, 0), new Cell(2, 0), 
+                                            new Cell(0, 1), new Cell(1, 1), new Cell(2, 1),
+                                            new Cell(0, 2), new Cell(1, 2), new Cell(2, 2));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeFalse();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeFalse();
         }
 
         [Fact]
         public void new_generation_should_keep_alive_cell_with_three_alive_neighbours()
         {
-            var generation = new Generation(new Point(1, 1), new Point(0, 1), new Point(2, 1), new Point(0, 0));
+            var generation = new Generation(new Cell(1, 1), new Cell(0, 1), new Cell(2, 1), new Cell(0, 0));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeTrue();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeTrue();
         }
 
         [Fact]
         public void new_generation_should_keep_alive_cell_with_two_live_neighbours()
         {
-            var generation = new Generation(new Point(1, 1), new Point(0, 1), new Point(2, 1));
+            var generation = new Generation(new Cell(1, 1), new Cell(0, 1), new Cell(2, 1));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeTrue();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeTrue();
         }
 
         [Fact]
         public void new_generation_should_revive_dead_cell_with_three_alive_neighbours()
         {
-            var generation = new Generation(new Point(0, 0), new Point(1, 0), new Point(2, 0));
+            var generation = new Generation(new Cell(0, 0), new Cell(1, 0), new Cell(2, 0));
 
-            generation.Tick().Contains(new Point(1, 1)).Should().BeTrue();
+            generation.Tick().Contains(new Cell(1, 1)).Should().BeTrue();
         }
 
         [Theory] /* http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life */
@@ -96,9 +96,9 @@ namespace ConwaysWayOfLifeKatas.UnitTests
         public void blinker_oscillator_should_oscillate_according_to_wikipedia(
             int x, int y, int generationIndex, bool isAlive)
         {
-            var generations = new Generations(new Point(0, 1), new Point(1, 1), new Point(2, 1));
+            var generations = new Generations(new Cell(0, 1), new Cell(1, 1), new Cell(2, 1));
 
-            generations[generationIndex].Contains(new Point(x, y)).Should().Be(isAlive);
+            generations[generationIndex].Contains(new Cell(x, y)).Should().Be(isAlive);
         }
     }
 }

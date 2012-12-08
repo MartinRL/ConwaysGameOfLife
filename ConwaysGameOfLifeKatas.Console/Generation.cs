@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace ConwaysGameOfLifeKatas.Console
 {
     public class Generation
     {
-        private readonly ISet<Point> aliveCells;
+        private readonly ISet<Cell> aliveCells;
 
-        public Generation(params Point[] seed)
+        public Generation(params Cell[] seed)
         {
-            aliveCells = new HashSet<Point>(seed);
+            aliveCells = new HashSet<Cell>(seed);
         }
 
-        private IEnumerable<Point> KeepAlives
+        private IEnumerable<Cell> KeepAlives
         {
             get
             {
@@ -22,7 +21,7 @@ namespace ConwaysGameOfLifeKatas.Console
             }
         }
 
-        private IEnumerable<Point> Revives
+        private IEnumerable<Cell> Revives
         {
             get
             {
@@ -37,32 +36,22 @@ namespace ConwaysGameOfLifeKatas.Console
             return new Generation(KeepAlives.Union(Revives).ToArray());
         }
 
-        private IEnumerable<Point> GetDeadNeighboursOf(Point cell)
+        private IEnumerable<Cell> GetDeadNeighboursOf(Cell cell)
         {
-            return GetNeighboursOf(cell).Where(IsDead);
+            return cell.Neighbours.Where(IsDead);
         }
 
-        private static IEnumerable<Point> GetNeighboursOf(Point cell)
+        private int GetNumberOfAliveNeighboursOf(Cell cell)
         {
-            const int START = -1;
-            const int END = 1;
-
-            return START.To(END)
-                    .SelectMany(x => START.To(END).Select(y => new Point(cell.X + x, cell.Y + y)))
-                    .Except(cell);
+            return cell.Neighbours.Count(Contains);
         }
 
-        private int GetNumberOfAliveNeighboursOf(Point cell)
-        {
-            return GetNeighboursOf(cell).Count(Contains);
-        }
-
-        private bool IsDead(Point cell)
+        private bool IsDead(Cell cell)
         {
             return !Contains(cell);
         }
 
-        public bool Contains(Point cell)
+        public bool Contains(Cell cell)
         {
             return aliveCells.Contains(cell);
         }

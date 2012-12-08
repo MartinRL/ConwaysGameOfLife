@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace ConwaysGameOfLifeKatas.Console
@@ -37,7 +36,7 @@ namespace ConwaysGameOfLifeKatas.Console
         {
             return Enumerable.Range(0, gridSize)
                              .Select(y => Enumerable.Range(0, gridSize)
-                                                    .Select(x => @this.Contains(new Point(x, y)) ? "X" : "O")
+                                                    .Select(x => @this.Contains(new Cell(x, y)) ? "X" : "O")
                                                     .JoinAsString(" "));
         }
 
