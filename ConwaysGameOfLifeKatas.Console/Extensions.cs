@@ -45,5 +45,10 @@ namespace ConwaysGameOfLifeKatas.Console
         {
             return Enumerable.Range(@this, to - @this + 1);
         }
+
+        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> @this)
+        {
+            return new HashSet<T>(@this);
+        }
     }
 }

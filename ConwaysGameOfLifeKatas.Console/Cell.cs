@@ -1,4 +1,7 @@
-﻿namespace ConwaysGameOfLifeKatas.Console
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace ConwaysGameOfLifeKatas.Console
 {
     public class Cell
     {
@@ -9,6 +12,20 @@
         {
             this.x = x;
             this.y = y;
+        }
+
+        public ISet<Cell> Neighbours
+        {
+            get
+            {
+                const int START = -1;
+                const int END = 1;
+
+                return START.To(END)
+                            .SelectMany(xOffset => START.To(END).Select(yOffset => new Cell(x + xOffset, y + yOffset)))
+                            .Except(this)
+                            .ToHashSet();
+            }
         }
 
         protected bool Equals(Cell other)
