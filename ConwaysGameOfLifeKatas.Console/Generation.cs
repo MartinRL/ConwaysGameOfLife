@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ConwaysGameOfLifeKatas.Console
 {
-    public class Generation
+    public class Generation : IEnumerable<Cell>
     {
         private readonly ISet<Cell> aliveCells;
 
@@ -43,17 +44,22 @@ namespace ConwaysGameOfLifeKatas.Console
 
         private int GetNumberOfAliveNeighboursOf(Cell cell)
         {
-            return cell.Neighbours.Count(Contains);
+            return cell.Neighbours.Count(this.Contains);
         }
 
         private bool IsDead(Cell cell)
         {
-            return !Contains(cell);
+            return !this.Contains(cell);
         }
 
-        public bool Contains(Cell cell)
+        public IEnumerator<Cell> GetEnumerator()
         {
-            return aliveCells.Contains(cell);
+            return aliveCells.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
